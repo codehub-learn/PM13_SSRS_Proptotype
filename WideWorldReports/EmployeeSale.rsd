@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet2">
+    <Query>
+      <DataSourceReference>WideWorldDWReportsSource</DataSourceReference>
+      <CommandText>SELECT Dimension.Employee.[WWI Employee ID], Dimension.Employee.Employee, Dimension.Employee.[Preferred Name], Fact.Sale.[Sale Key], Fact.Sale.Description, Fact.Sale.Profit, Fact.Sale.[Total Including Tax], 
+                  Fact.Sale.[Total Excluding Tax]
+FROM     Dimension.Employee INNER JOIN
+                  Fact.Sale ON Dimension.Employee.[Employee Key] = Fact.Sale.[Salesperson Key]</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="WWI_Employee_ID">
+        <DataField>WWI Employee ID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Employee">
+        <DataField>Employee</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Preferred_Name">
+        <DataField>Preferred Name</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Sale_Key">
+        <DataField>Sale Key</DataField>
+        <rd:TypeName>System.Int64</rd:TypeName>
+      </Field>
+      <Field Name="Description">
+        <DataField>Description</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Profit">
+        <DataField>Profit</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Total_Including_Tax">
+        <DataField>Total Including Tax</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Total_Excluding_Tax">
+        <DataField>Total Excluding Tax</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

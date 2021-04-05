@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Description />
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>WideWorldReportsSource</DataSourceReference>
+      <CommandText>SELECT     FullName, PreferredName, EmailAddress AS Email, PhoneNumber, IsEmployee, ValidFrom, ValidTo
+FROM        Application.People
+WHERE     (PersonID BETWEEN 1 AND 2000)
+ORDER BY FullName, PreferredName</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="FullName">
+        <DataField>FullName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PreferredName">
+        <DataField>PreferredName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Email">
+        <DataField>Email</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PhoneNumber">
+        <DataField>PhoneNumber</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="IsEmployee">
+        <DataField>IsEmployee</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="ValidFrom">
+        <DataField>ValidFrom</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="ValidTo">
+        <DataField>ValidTo</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

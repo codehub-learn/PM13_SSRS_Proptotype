@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Description />
+  <DataSet Name="Order">
+    <Query>
+      <DataSourceReference>WideWorldDWReportsSource</DataSourceReference>
+      <CommandText>SELECT     Dimension.[Stock Item].[Stock Item], Dimension.[Stock Item].Color, Dimension.[Stock Item].Brand, Dimension.[Stock Item].Size, Dimension.[Stock Item].[Unit Price], Dimension.[Stock Item].[Tax Rate], Dimension.[Stock Item].[Recommended Retail Price], Dimension.Customer.Customer, 
+                  Dimension.Customer.Category, Dimension.Customer.[Postal Code], Fact.Sale.Quantity, Fact.Sale.Description, Fact.Sale.[Total Excluding Tax], Fact.Sale.Profit, Fact.Sale.[Sale Key]
+FROM        Fact.Sale INNER JOIN
+                  Dimension.Customer ON Fact.Sale.[Customer Key] = Dimension.Customer.[Customer Key] AND Fact.Sale.[Bill To Customer Key] = Dimension.Customer.[Customer Key] INNER JOIN
+                  Dimension.[Stock Item] ON Fact.Sale.[Stock Item Key] = Dimension.[Stock Item].[Stock Item Key]
+WHERE     (Fact.Sale.[Sale Key] BETWEEN 1 AND 2000)</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="Stock_Item">
+        <DataField>Stock Item</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Color">
+        <DataField>Color</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Brand">
+        <DataField>Brand</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Size">
+        <DataField>Size</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Unit_Price">
+        <DataField>Unit Price</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Tax_Rate">
+        <DataField>Tax Rate</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Recommended_Retail_Price">
+        <DataField>Recommended Retail Price</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Customer">
+        <DataField>Customer</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Category">
+        <DataField>Category</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Postal_Code">
+        <DataField>Postal Code</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Quantity">
+        <DataField>Quantity</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Description">
+        <DataField>Description</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Total_Excluding_Tax">
+        <DataField>Total Excluding Tax</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Profit">
+        <DataField>Profit</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Sale_Key">
+        <DataField>Sale Key</DataField>
+        <rd:TypeName>System.Int64</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

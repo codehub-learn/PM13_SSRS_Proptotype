@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Description />
+  <DataSet Name="Product">
+    <Query>
+      <DataSourceReference>WideWorldReportsSource</DataSourceReference>
+      <CommandText>SELECT     Warehouse.StockItems.StockItemID, Warehouse.StockItems.StockItemName, Warehouse.StockItems.SupplierID, Warehouse.Colors.ColorID, Warehouse.Colors.ColorName, Warehouse.StockItems.Brand, Warehouse.StockItems.Size, Warehouse.StockItems.IsChillerStock
+FROM        Warehouse.Colors INNER JOIN
+                  Warehouse.StockItems ON Warehouse.Colors.ColorID = Warehouse.StockItems.ColorID</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="StockItemID">
+        <DataField>StockItemID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="StockItemName">
+        <DataField>StockItemName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="SupplierID">
+        <DataField>SupplierID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="ColorID">
+        <DataField>ColorID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="ColorName">
+        <DataField>ColorName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Brand">
+        <DataField>Brand</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Size">
+        <DataField>Size</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="IsChillerStock">
+        <DataField>IsChillerStock</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

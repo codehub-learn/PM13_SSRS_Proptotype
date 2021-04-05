@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "WideWorldReports", "WideWorldReports\WideWorldReports.rptproj", "{950D52F4-C0CC-491F-BABD-680E09A2F063}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{950D52F4-C0CC-491F-BABD-680E09A2F063}.Debug|Default.ActiveCfg = Debug
+		{950D52F4-C0CC-491F-BABD-680E09A2F063}.Debug|Default.Build.0 = Debug
+		{950D52F4-C0CC-491F-BABD-680E09A2F063}.Debug|Default.Deploy.0 = Debug
+		{950D52F4-C0CC-491F-BABD-680E09A2F063}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{950D52F4-C0CC-491F-BABD-680E09A2F063}.DebugLocal|Default.Build.0 = DebugLocal
+		{950D52F4-C0CC-491F-BABD-680E09A2F063}.Release|Default.ActiveCfg = Release
+		{950D52F4-C0CC-491F-BABD-680E09A2F063}.Release|Default.Build.0 = Release
+		{950D52F4-C0CC-491F-BABD-680E09A2F063}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {034755E2-59B5-4405-A7EE-84F16B0DF53F}
+	EndGlobalSection
+EndGlobal
