@@ -1109,6 +1109,9 @@
                       </Textbox>
                     </CellContents>
                   </TablixHeader>
+                  <Visibility>
+                    <Hidden>=IIF(CountDistinct(Fields!StockItemID.Value)&lt;3,True, False)</Hidden>
+                  </Visibility>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
@@ -1148,7 +1151,6 @@
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
             <Top>7.49056cm</Top>
-            <Left>0cm</Left>
             <Height>1.00217cm</Height>
             <Width>16.51cm</Width>
             <ZIndex>4</ZIndex>
@@ -1243,7 +1245,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.085cm</Width>
+                  <Width>1.38367cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.14533cm</Width>
@@ -1333,7 +1335,12 @@
                                 <TextRun>
                                   <Value>=CountDistinct(Fields!StockItemID.Value)</Value>
                                   <Style>
-                                    <FontWeight>Bold</FontWeight>
+                                    <FontWeight>=IIF(CountDistinct(Fields!StockItemID.Value)&gt;3, "Bold", "Normal")</FontWeight>
+                                    <Color>=SWITCH(
+CountDistinct(Fields!StockItemID.Value)&gt;3, "Green",
+CountDistinct(Fields!StockItemID.Value)=3, "Yellow",
+CountDistinct(Fields!StockItemID.Value)&gt;=0, "Red"
+)</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1371,6 +1378,10 @@
                                   <Value>=CountDistinct(Fields!StockItemID.Value)</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
+                                    <Color>=IIF(CountDistinct(Fields!StockItemID.Value)&gt;
+CountDistinct(Fields!StockItemID.Value, "Product"),
+"Red",
+"Green")</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1612,8 +1623,16 @@
                     </CellContents>
                   </TablixHeader>
                   <TablixMembers>
-                    <TablixMember />
-                    <TablixMember />
+                    <TablixMember>
+                      <Visibility>
+                        <Hidden>=IIF(CountDistinct(Fields!StockItemID.Value)&lt;=40, True, False)</Hidden>
+                      </Visibility>
+                    </TablixMember>
+                    <TablixMember>
+                      <Visibility>
+                        <Hidden>=IIF(CountDistinct(Fields!StockItemID.Value)&lt;=40, True, False)</Hidden>
+                      </Visibility>
+                    </TablixMember>
                   </TablixMembers>
                 </TablixMember>
                 <TablixMember>
@@ -1718,7 +1737,7 @@
                         </SortExpression>
                       </SortExpressions>
                       <TablixHeader>
-                        <Size>1.57733cm</Size>
+                        <Size>1.23866cm</Size>
                         <CellContents>
                           <Textbox Name="Brand">
                             <CanGrow>true</CanGrow>
@@ -1758,7 +1777,7 @@
                     </TablixMember>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>1.57733cm</Size>
+                        <Size>1.23866cm</Size>
                         <CellContents>
                           <Textbox Name="Textbox77">
                             <CanGrow>true</CanGrow>
@@ -1835,7 +1854,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>1.57733cm</Size>
+                        <Size>1.23866cm</Size>
                         <CellContents>
                           <Textbox Name="Textbox107">
                             <CanGrow>true</CanGrow>
@@ -1876,6 +1895,15 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>Product</DataSetName>
+            <Filters>
+              <Filter>
+                <FilterExpression>=Fields!IsChillerStock.Value</FilterExpression>
+                <Operator>Equal</Operator>
+                <FilterValues>
+                  <FilterValue DataType="Boolean">false</FilterValue>
+                </FilterValues>
+              </Filter>
+            </Filters>
             <SortExpressions>
               <SortExpression>
                 <Value>=Fields!ColorID.Value</Value>
@@ -1890,7 +1918,7 @@
             </SortExpressions>
             <Top>8.52801cm</Top>
             <Height>2.4cm</Height>
-            <Width>7.326cm</Width>
+            <Width>7.28599cm</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
