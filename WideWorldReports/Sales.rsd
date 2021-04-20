@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Description />
+  <DataSet Name="Sales">
+    <Query>
+      <DataSourceReference>WideWorldDWReportsSource</DataSourceReference>
+      <CommandText>SELECT Fact.Sale.Profit, Fact.Sale.[Tax Amount], Fact.Sale.[Total Excluding Tax], Fact.Sale.Quantity, Fact.Sale.[Unit Price], Fact.Sale.[Sale Key], Dimension.Date.[Calendar Year], Dimension.Date.[Calendar Month Label], City.City, City.[City Key], 
+                  City.Country, City.Continent, Dimension.[Stock Item].Color, Dimension.Customer.Category, Dimension.Customer.Customer
+FROM     Fact.Sale INNER JOIN
+                  Dimension.Date ON Fact.Sale.[Invoice Date Key] = Dimension.Date.Date INNER JOIN
+                  Dimension.City AS City ON Fact.Sale.[City Key] = City.[City Key] INNER JOIN
+                  Dimension.Customer ON Fact.Sale.[Customer Key] = Dimension.Customer.[Customer Key] INNER JOIN
+                  Dimension.[Stock Item] ON Fact.Sale.[Stock Item Key] = Dimension.[Stock Item].[Stock Item Key]</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="Profit">
+        <DataField>Profit</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Tax_Amount">
+        <DataField>Tax Amount</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Total_Excluding_Tax">
+        <DataField>Total Excluding Tax</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Quantity">
+        <DataField>Quantity</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Unit_Price">
+        <DataField>Unit Price</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Sale_Key">
+        <DataField>Sale Key</DataField>
+        <rd:TypeName>System.Int64</rd:TypeName>
+      </Field>
+      <Field Name="Calendar_Year">
+        <DataField>Calendar Year</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Calendar_Month_Label">
+        <DataField>Calendar Month Label</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="City">
+        <DataField>City</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="City_Key">
+        <DataField>City Key</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Country">
+        <DataField>Country</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Continent">
+        <DataField>Continent</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Color">
+        <DataField>Color</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Category">
+        <DataField>Category</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Customer">
+        <DataField>Customer</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

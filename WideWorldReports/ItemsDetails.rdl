@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Report MustUnderstand="df" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily">
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -6,48 +6,14 @@
     <DataSource Name="WideWorldReportsSource">
       <DataSourceReference>WideWorldReportsSource</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
-      <rd:DataSourceID>002d7a39-7cc1-49b4-8565-d3c6ea8cf1e8</rd:DataSourceID>
+      <rd:DataSourceID>7c86823b-34df-49ba-b0d6-332e38298aa3</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSet1">
-      <Query>
-        <DataSourceName>WideWorldReportsSource</DataSourceName>
-        <CommandText>SELECT     FullName, PreferredName, EmailAddress AS Email, PhoneNumber, IsEmployee
-FROM        Application.People
-WHERE     (PersonID BETWEEN 1 AND 2000)
-ORDER BY FullName, PreferredName</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="FullName">
-          <DataField>FullName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="PreferredName">
-          <DataField>PreferredName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Email">
-          <DataField>Email</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="PhoneNumber">
-          <DataField>PhoneNumber</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="IsEmployee">
-          <DataField>IsEmployee</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-      </Fields>
-    </DataSet>
-    <DataSet Name="DataSet2">
-      <Query>
-        <DataSourceName>WideWorldReportsSource</DataSourceName>
-        <CommandText>SELECT     Warehouse.StockItems.StockItemID, Warehouse.StockItems.StockItemName, Warehouse.StockItems.SupplierID, Warehouse.Colors.ColorID, Warehouse.Colors.ColorName, Warehouse.StockItems.Brand, Warehouse.StockItems.Size, Warehouse.StockItems.IsChillerStock
-FROM        Warehouse.Colors INNER JOIN
-                  Warehouse.StockItems ON Warehouse.Colors.ColorID = Warehouse.StockItems.ColorID</CommandText>
-      </Query>
+    <DataSet Name="Product">
+      <SharedDataSet>
+        <SharedDataSetReference>Product</SharedDataSetReference>
+      </SharedDataSet>
       <Fields>
         <Field Name="StockItemID">
           <DataField>StockItemID</DataField>
@@ -83,75 +49,91 @@ FROM        Warehouse.Colors INNER JOIN
         </Field>
       </Fields>
     </DataSet>
+    <DataSet Name="ColorSelection">
+      <Query>
+        <DataSourceName>WideWorldReportsSource</DataSourceName>
+        <CommandText>SELECT DISTINCT Warehouse.Colors.ColorName
+FROM Warehouse.Colors INNER JOIN
+Warehouse.StockItems ON Warehouse.Colors.ColorID = Warehouse.StockItems.ColorID</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="ColorName">
+          <DataField>ColorName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
   </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
         <ReportItems>
-          <Textbox Name="textbox1">
+          <Textbox Name="Textbox7">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>People</Value>
+                    <Value>Stock Items Details</Value>
                     <Style>
-                      <FontFamily>Segoe UI Light</FontFamily>
+                      <FontFamily>Lucida Sans</FontFamily>
                       <FontSize>24pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
+                      <FontWeight>Normal</FontWeight>
                       <Color>Tan</Color>
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
-            <rd:DefaultName>textbox1</rd:DefaultName>
-            <Height>0.57278in</Height>
-            <Width>5in</Width>
+            <rd:DefaultName>Textbox7</rd:DefaultName>
+            <Height>1.4732cm</Height>
+            <Width>16.51cm</Width>
+            <Bookmark>ReportTitle</Bookmark>
             <Style>
+              <Border>
+                <Style>None</Style>
+                <Width>0.25pt</Width>
+              </Border>
               <BackgroundColor>Black</BackgroundColor>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
+              <VerticalAlign>Middle</VerticalAlign>
             </Style>
           </Textbox>
           <Tablix Name="Tablix1">
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.23833in</Width>
+                  <Width>4.445cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.23833in</Width>
+                  <Width>4.445cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.23833in</Width>
+                  <Width>4.08517cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.285in</Width>
+                  <Width>3.53483cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.25in</Height>
+                  <Height>0.6cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox2">
+                        <Textbox Name="Textbox1">
                           <CanGrow>true</CanGrow>
-                          <UserSort>
-                            <SortExpression>=Fields!FullName.Value</SortExpression>
-                          </UserSort>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Full Name</Value>
+                                  <Value>Stock Item Name</Value>
                                   <Style>
+                                    <FontFamily>Lucida Sans</FontFamily>
                                     <Color>Tan</Color>
                                   </Style>
                                 </TextRun>
@@ -159,7 +141,7 @@ FROM        Warehouse.Colors INNER JOIN
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -176,18 +158,16 @@ FROM        Warehouse.Colors INNER JOIN
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox4">
+                        <Textbox Name="Textbox3">
                           <CanGrow>true</CanGrow>
-                          <UserSort>
-                            <SortExpression>=Fields!PreferredName.Value</SortExpression>
-                          </UserSort>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Preferred Name</Value>
+                                  <Value>Color Name</Value>
                                   <Style>
+                                    <FontFamily>Lucida Sans</FontFamily>
                                     <Color>Tan</Color>
                                   </Style>
                                 </TextRun>
@@ -195,7 +175,7 @@ FROM        Warehouse.Colors INNER JOIN
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox4</rd:DefaultName>
+                          <rd:DefaultName>Textbox3</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -212,18 +192,16 @@ FROM        Warehouse.Colors INNER JOIN
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox6">
+                        <Textbox Name="Textbox5">
                           <CanGrow>true</CanGrow>
-                          <UserSort>
-                            <SortExpression>=Fields!Email.Value</SortExpression>
-                          </UserSort>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Email</Value>
+                                  <Value>Brand</Value>
                                   <Style>
+                                    <FontFamily>Lucida Sans</FontFamily>
                                     <Color>Tan</Color>
                                   </Style>
                                 </TextRun>
@@ -231,7 +209,7 @@ FROM        Warehouse.Colors INNER JOIN
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox6</rd:DefaultName>
+                          <rd:DefaultName>Textbox5</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -250,17 +228,14 @@ FROM        Warehouse.Colors INNER JOIN
                       <CellContents>
                         <Textbox Name="Textbox8">
                           <CanGrow>true</CanGrow>
-                          <UserSort>
-                            <SortExpression>=Fields!PhoneNumber.Value</SortExpression>
-                          </UserSort>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Phone Number</Value>
+                                  <Value>Size</Value>
                                   <Style>
-                                    <FontFamily>Arial</FontFamily>
+                                    <FontFamily>Lucida Sans</FontFamily>
                                     <Color>Tan</Color>
                                   </Style>
                                 </TextRun>
@@ -286,25 +261,25 @@ FROM        Warehouse.Colors INNER JOIN
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.25in</Height>
+                  <Height>0.6cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="FullName">
+                        <Textbox Name="StockItemName">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!FullName.Value</Value>
+                                  <Value>=Fields!StockItemName.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>FullName</rd:DefaultName>
+                          <rd:DefaultName>StockItemName</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -320,21 +295,21 @@ FROM        Warehouse.Colors INNER JOIN
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="PreferredName">
+                        <Textbox Name="ColorName">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!PreferredName.Value</Value>
+                                  <Value>=Fields!ColorName.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>PreferredName</rd:DefaultName>
+                          <rd:DefaultName>ColorName</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -350,21 +325,21 @@ FROM        Warehouse.Colors INNER JOIN
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Email">
+                        <Textbox Name="Brand">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Email.Value</Value>
+                                  <Value>=Fields!Brand.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Email</rd:DefaultName>
+                          <rd:DefaultName>Brand</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -380,14 +355,14 @@ FROM        Warehouse.Colors INNER JOIN
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="PhoneNumber">
+                        <Textbox Name="Size">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!PhoneNumber.Value</Value>
+                                  <Value>=Fields!Size.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                   </Style>
@@ -396,7 +371,7 @@ FROM        Warehouse.Colors INNER JOIN
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>PhoneNumber</rd:DefaultName>
+                          <rd:DefaultName>Size</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -432,10 +407,39 @@ FROM        Warehouse.Colors INNER JOIN
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>DataSet1</DataSetName>
-            <Top>0.61444in</Top>
-            <Height>0.5in</Height>
-            <Width>4.99999in</Width>
+            <DataSetName>Product</DataSetName>
+            <Filters>
+              <Filter>
+                <FilterExpression>=Fields!ColorName.Value</FilterExpression>
+                <Operator>Equal</Operator>
+                <FilterValues>
+                  <FilterValue>=Parameters!ColorParameter.Value</FilterValue>
+                </FilterValues>
+              </Filter>
+              <Filter>
+                <FilterExpression>=Fields!IsChillerStock.Value</FilterExpression>
+                <Operator>Equal</Operator>
+                <FilterValues>
+                  <FilterValue>=Parameters!ChillerParameter.Value</FilterValue>
+                </FilterValues>
+              </Filter>
+            </Filters>
+            <SortExpressions>
+              <SortExpression>
+                <Value>=IIF(Parameters!Sortorder.Value=true, 
+Fields(Parameters!Sortby.Value).Value,
+0)</Value>
+              </SortExpression>
+              <SortExpression>
+                <Value>=IIF(Parameters!Sortorder.Value=false, 
+Fields(Parameters!Sortby.Value).Value,
+0)</Value>
+                <Direction>Descending</Direction>
+              </SortExpression>
+            </SortExpressions>
+            <Top>1.4732cm</Top>
+            <Height>1.2cm</Height>
+            <Width>16.51cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -444,27 +448,127 @@ FROM        Warehouse.Colors INNER JOIN
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>4.975in</Height>
+        <Height>4.7in</Height>
         <Style />
       </Body>
-      <Width>5.01333in</Width>
+      <Width>6.5in</Width>
       <Page>
-        <LeftMargin>1in</LeftMargin>
-        <RightMargin>1in</RightMargin>
-        <TopMargin>1in</TopMargin>
-        <BottomMargin>1in</BottomMargin>
+        <PageHeight>29.7cm</PageHeight>
+        <PageWidth>21cm</PageWidth>
+        <LeftMargin>2cm</LeftMargin>
+        <RightMargin>2cm</RightMargin>
+        <TopMargin>2cm</TopMargin>
+        <BottomMargin>2cm</BottomMargin>
+        <ColumnSpacing>0.13cm</ColumnSpacing>
         <Style />
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="ColorParameter">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Black</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Color</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>ColorSelection</DataSetName>
+          <ValueField>ColorName</ValueField>
+          <LabelField>ColorName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="ChillerParameter">
+      <DataType>Boolean</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>false</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Chiller Stock</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Sortby">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>StockItemName</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Sort By</Prompt>
+      <ValidValues>
+        <ParameterValues>
+          <ParameterValue>
+            <Value>StockItemName</Value>
+            <Label>Name</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>ColorName</Value>
+            <Label>Color</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>Brand</Value>
+            <Label>Brand</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>Size</Value>
+            <Label>Size</Label>
+          </ParameterValue>
+        </ParameterValues>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="Sortorder">
+      <DataType>Boolean</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>true</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Sort Order</Prompt>
+      <ValidValues>
+        <ParameterValues>
+          <ParameterValue>
+            <Value>true</Value>
+            <Label>Ascending</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>false</Value>
+            <Label>Descending</Label>
+          </ParameterValue>
+        </ParameterValues>
+      </ValidValues>
+    </ReportParameter>
+  </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>4</NumberOfColumns>
       <NumberOfRows>2</NumberOfRows>
+      <CellDefinitions>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>ColorParameter</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>ChillerParameter</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>Sortby</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>Sortorder</ParameterName>
+        </CellDefinition>
+      </CellDefinitions>
     </GridLayoutDefinition>
   </ReportParametersLayout>
-  <Language>en-US</Language>
-  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
-  <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>96259bc2-9dac-4d38-855a-e72957d9e266</rd:ReportID>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>6c2b2190-3d35-4927-b9e1-0f0d776ef6da</rd:ReportID>
 </Report>
