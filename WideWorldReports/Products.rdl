@@ -125,13 +125,13 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>4.1275cm</Width>
+                  <Width>4.19629cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.1275cm</Width>
+                  <Width>4.19629cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>5.755cm</Width>
+                  <Width>5.82379cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -759,7 +759,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>2.5cm</Size>
+                        <Size>2.56879cm</Size>
                         <CellContents>
                           <Textbox Name="Textbox71">
                             <CanGrow>true</CanGrow>
@@ -820,7 +820,7 @@
                         </SortExpression>
                       </SortExpressions>
                       <TablixHeader>
-                        <Size>2.5cm</Size>
+                        <Size>2.56879cm</Size>
                         <CellContents>
                           <Textbox Name="ColorName1">
                             <CanGrow>true</CanGrow>
@@ -871,7 +871,7 @@
                 </TablixMember>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>2.5cm</Size>
+                    <Size>2.56879cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox74">
                         <CanGrow>true</CanGrow>
@@ -913,9 +913,9 @@
             </TablixRowHierarchy>
             <DataSetName>Product</DataSetName>
             <Top>1.4732cm</Top>
-            <Left>0.28809cm</Left>
+            <Left>0.01292cm</Left>
             <Height>3.77992cm</Height>
-            <Width>16.51cm</Width>
+            <Width>16.78517cm</Width>
             <DocumentMapLabel>Products List</DocumentMapLabel>
             <Style>
               <Border>
@@ -946,9 +946,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox7</rd:DefaultName>
-            <Left>0.28809cm</Left>
             <Height>1.4732cm</Height>
-            <Width>16.51cm</Width>
+            <Width>16.79809cm</Width>
             <ZIndex>1</ZIndex>
             <Bookmark>ReportTitle</Bookmark>
             <Style>
@@ -981,7 +980,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>5.25312cm</Top>
+            <Top>5.32368cm</Top>
             <Left>0.28809cm</Left>
             <Height>1.00217cm</Height>
             <Width>16.51cm</Width>
@@ -1206,7 +1205,7 @@
             <PageBreak>
               <BreakLocation>End</BreakLocation>
             </PageBreak>
-            <Top>6.29056cm</Top>
+            <Top>6.36112cm</Top>
             <Left>0.28809cm</Left>
             <Height>1.2cm</Height>
             <Width>8.0245cm</Width>
@@ -1242,10 +1241,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>7.63167cm</Top>
-            <Left>0.28809cm</Left>
+            <Top>7.66695cm</Top>
+            <Left>0.01292cm</Left>
             <Height>1.00217cm</Height>
-            <Width>16.51cm</Width>
+            <Width>16.78517cm</Width>
             <ZIndex>4</ZIndex>
             <DocumentMapLabel>Color, Brand and Supplier</DocumentMapLabel>
             <Style>
@@ -2010,8 +2009,8 @@ CountDistinct(Fields!StockItemID.Value, "Product"),
                 <Direction>Descending</Direction>
               </SortExpression>
             </SortExpressions>
-            <Top>8.52801cm</Top>
-            <Left>0.28809cm</Left>
+            <Top>8.59857cm</Top>
+            <Left>0.02065cm</Left>
             <Height>2.4cm</Height>
             <Width>7.28599cm</Width>
             <ZIndex>5</ZIndex>
@@ -2403,8 +2402,8 @@ CountDistinct(Fields!StockItemID.Value, "Product"),
               </Style>
             </ChartNoDataMessage>
             <DataSetName>Product</DataSetName>
-            <Top>12.07129cm</Top>
-            <Left>0.28809cm</Left>
+            <Top>12.10657cm</Top>
+            <Left>0.02065cm</Left>
             <Height>5.89541cm</Height>
             <Width>7.28599cm</Width>
             <ZIndex>6</ZIndex>
@@ -2438,10 +2437,10 @@ CountDistinct(Fields!StockItemID.Value, "Product"),
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>10.92801cm</Top>
-            <Left>0.28809cm</Left>
+            <Top>11.06912cm</Top>
+            <Left>0.02065cm</Left>
             <Height>1.00217cm</Height>
-            <Width>16.51cm</Width>
+            <Width>16.77744cm</Width>
             <ZIndex>7</ZIndex>
             <DocumentMapLabel>Overview</DocumentMapLabel>
             <Style>
@@ -2831,8 +2830,8 @@ CountDistinct(Fields!StockItemID.Value, "Product"),
                 </FilterValues>
               </Filter>
             </Filters>
-            <Top>12.07129cm</Top>
-            <Left>8.41842cm</Left>
+            <Top>12.17712cm</Top>
+            <Left>7.99509cm</Left>
             <Height>5.89541cm</Height>
             <Width>8.19997cm</Width>
             <ZIndex>8</ZIndex>
@@ -3218,8 +3217,8 @@ CountDistinct(Fields!StockItemID.Value, "Product"),
               </Style>
             </ChartNoDataMessage>
             <DataSetName>Sales</DataSetName>
-            <Top>24.21489cm</Top>
-            <Left>0.28809cm</Left>
+            <Top>24.25017cm</Top>
+            <Left>0.09546cm</Left>
             <Height>7.22891cm</Height>
             <Width>16.37242cm</Width>
             <ZIndex>9</ZIndex>
@@ -3603,8 +3602,8 @@ CountDistinct(Fields!StockItemID.Value, "Product"),
               </Style>
             </ChartNoDataMessage>
             <DataSetName>Sales</DataSetName>
-            <Top>18.14309cm</Top>
-            <Left>0.28809cm</Left>
+            <Top>18.21365cm</Top>
+            <Left>0.02065cm</Left>
             <Height>5.89541cm</Height>
             <Width>16.51cm</Width>
             <ZIndex>10</ZIndex>
@@ -3991,7 +3990,7 @@ CountDistinct(Fields!StockItemID.Value, "Product"),
               </Style>
             </ChartNoDataMessage>
             <DataSetName>Sales</DataSetName>
-            <Top>31.74256cm</Top>
+            <Top>31.81312cm</Top>
             <Left>0.28808cm</Left>
             <Height>7.22891cm</Height>
             <Width>16.37242cm</Width>
@@ -4392,8 +4391,7 @@ CountDistinct(Fields!StockItemID.Value, "Product"),
               </Style>
             </ChartNoDataMessage>
             <DataSetName>Sales</DataSetName>
-            <Top>39.11258cm</Top>
-            <Left>0.28809cm</Left>
+            <Top>39.18314cm</Top>
             <Height>8.30841cm</Height>
             <Width>16.37242cm</Width>
             <ZIndex>12</ZIndex>
@@ -4780,7 +4778,7 @@ CountDistinct(Fields!StockItemID.Value, "Product"),
               </Style>
             </ChartNoDataMessage>
             <DataSetName>Sales</DataSetName>
-            <Top>47.81762cm</Top>
+            <Top>47.88818cm</Top>
             <Left>0.28809cm</Left>
             <Height>8.30841cm</Height>
             <Width>16.37242cm</Width>
@@ -4815,7 +4813,7 @@ CountDistinct(Fields!StockItemID.Value, "Product"),
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>56.12603cm</Top>
+            <Top>56.19659cm</Top>
             <Left>0.01292cm</Left>
             <Height>1.00217cm</Height>
             <Width>16.78517cm</Width>
@@ -6331,7 +6329,7 @@ CountDistinct(Fields!StockItemID.Value, "Product"),
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>Sales</DataSetName>
-            <Top>57.16348cm</Top>
+            <Top>57.23404cm</Top>
             <Height>4.87595cm</Height>
             <Width>16.79809cm</Width>
             <ZIndex>15</ZIndex>
@@ -6713,10 +6711,10 @@ CountDistinct(Fields!StockItemID.Value, "Product"),
               </Style>
             </ChartNoDataMessage>
             <DataSetName>Sales</DataSetName>
-            <Top>62.14526cm</Top>
-            <Left>0.24597cm</Left>
+            <Top>62.21582cm</Top>
+            <Left>0.28809cm</Left>
             <Height>7.22891cm</Height>
-            <Width>16.37242cm</Width>
+            <Width>16.3303cm</Width>
             <ZIndex>16</ZIndex>
             <Style>
               <Border>
@@ -6738,9 +6736,10 @@ CountDistinct(Fields!StockItemID.Value, "Product"),
                 </Action>
               </Actions>
             </ActionInfo>
-            <Top>69.55056cm</Top>
+            <Top>69.62112cm</Top>
+            <Left>0.28808cm</Left>
             <Height>1.62164cm</Height>
-            <Width>16.79809cm</Width>
+            <Width>16.51001cm</Width>
             <ZIndex>17</ZIndex>
             <Style>
               <Border>
@@ -6749,7 +6748,7 @@ CountDistinct(Fields!StockItemID.Value, "Product"),
             </Style>
           </Image>
         </ReportItems>
-        <Height>28.02055in</Height>
+        <Height>28.04833in</Height>
         <Style />
       </Body>
       <Width>6.61342in</Width>
