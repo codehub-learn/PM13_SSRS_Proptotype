@@ -6298,6 +6298,20 @@ CountDistinct(Fields!StockItemID.Value, "Product"),
                           </Paragraph>
                         </Paragraphs>
                         <rd:DefaultName>Color</rd:DefaultName>
+                        <ActionInfo>
+                          <Actions>
+                            <Action>
+                              <Drillthrough>
+                                <ReportName>ItemsDetails</ReportName>
+                                <Parameters>
+                                  <Parameter Name="ColorParameter">
+                                    <Value>=Fields!Color.Value</Value>
+                                  </Parameter>
+                                </Parameters>
+                              </Drillthrough>
+                            </Action>
+                          </Actions>
+                        </ActionInfo>
                         <DocumentMapLabel>=Fields!Color.Value</DocumentMapLabel>
                         <Bookmark>="ColorDetails_"&amp;Fields!Color.Value</Bookmark>
                         <Style>

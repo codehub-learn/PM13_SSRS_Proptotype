@@ -63,6 +63,28 @@ Warehouse.StockItems ON Warehouse.Colors.ColorID = Warehouse.StockItems.ColorID<
         </Field>
       </Fields>
     </DataSet>
+    <DataSet Name="SizeSelection">
+      <Query>
+        <DataSourceName>WideWorldReportsSource</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@SelectedColors">
+            <Value>=Parameters!ColorParameter.Value</Value>
+            <rd:UserDefined>true</rd:UserDefined>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT DISTINCT Warehouse.StockItems.Size AS Size
+FROM     Warehouse.Colors INNER JOIN
+                  Warehouse.StockItems ON Warehouse.Colors.ColorID = Warehouse.StockItems.ColorID
+WHERE  Warehouse.Colors.ColorName IN (@SelectedColors)
+AND Warehouse.StockItems.Size IS NOT NULL</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Size">
+          <DataField>Size</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
   </DataSets>
   <ReportSections>
     <ReportSection>
@@ -411,7 +433,7 @@ Warehouse.StockItems ON Warehouse.Colors.ColorID = Warehouse.StockItems.ColorID<
             <Filters>
               <Filter>
                 <FilterExpression>=Fields!ColorName.Value</FilterExpression>
-                <Operator>Equal</Operator>
+                <Operator>In</Operator>
                 <FilterValues>
                   <FilterValue>=Parameters!ColorParameter.Value</FilterValue>
                 </FilterValues>
@@ -421,6 +443,13 @@ Warehouse.StockItems ON Warehouse.Colors.ColorID = Warehouse.StockItems.ColorID<
                 <Operator>Equal</Operator>
                 <FilterValues>
                   <FilterValue>=Parameters!ChillerParameter.Value</FilterValue>
+                </FilterValues>
+              </Filter>
+              <Filter>
+                <FilterExpression>=Fields!Size.Value</FilterExpression>
+                <Operator>In</Operator>
+                <FilterValues>
+                  <FilterValue>=Parameters!SizeParameter.Value</FilterValue>
                 </FilterValues>
               </Filter>
             </Filters>
@@ -480,6 +509,7 @@ Fields(Parameters!Sortby.Value).Value,
           <LabelField>ColorName</LabelField>
         </DataSetReference>
       </ValidValues>
+      <MultiValue>true</MultiValue>
     </ReportParameter>
     <ReportParameter Name="ChillerParameter">
       <DataType>Boolean</DataType>
@@ -540,6 +570,24 @@ Fields(Parameters!Sortby.Value).Value,
         </ParameterValues>
       </ValidValues>
     </ReportParameter>
+    <ReportParameter Name="SizeParameter">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>SizeSelection</DataSetName>
+          <ValueField>Size</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>Available Sizes</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>SizeSelection</DataSetName>
+          <ValueField>Size</ValueField>
+          <LabelField>Size</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -565,6 +613,11 @@ Fields(Parameters!Sortby.Value).Value,
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>1</RowIndex>
           <ParameterName>Sortorder</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>SizeParameter</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
