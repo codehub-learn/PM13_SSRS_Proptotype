@@ -3,7 +3,6 @@
   <ConnectionProperties>
     <Extension>SQL</Extension>
     <ConnectString>Data Source=localhost;Initial Catalog=WideWorldImporters</ConnectString>
-    <IntegratedSecurity>true</IntegratedSecurity>
   </ConnectionProperties>
   <DataSourceID>20e0efc0-ace9-48a5-ad51-314a2f055be3</DataSourceID>
 </RptDataSource>

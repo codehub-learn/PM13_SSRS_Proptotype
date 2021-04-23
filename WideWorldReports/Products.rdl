@@ -427,7 +427,8 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!StockItemName.Value</Value>
+                                  <Label>Stock Item Name</Label>
+                                  <Value>=Code.ChangeWord(Fields!StockItemName.Value)</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -555,7 +556,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Brand.Value</Value>
+                                  <Value>=CustomAssembly.MyAssembly.Capitalize(Fields!Brand.Value)</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                   </Style>
@@ -915,7 +916,7 @@
             <Top>1.4732cm</Top>
             <Left>0.01292cm</Left>
             <Height>3.77992cm</Height>
-            <Width>16.78517cm</Width>
+            <Width>16.78516cm</Width>
             <DocumentMapLabel>Products List</DocumentMapLabel>
             <Style>
               <Border>
@@ -981,9 +982,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
             <Top>5.32368cm</Top>
-            <Left>0.28809cm</Left>
+            <Left>0.01292cm</Left>
             <Height>1.00217cm</Height>
-            <Width>16.51cm</Width>
+            <Width>16.76452cm</Width>
             <ZIndex>2</ZIndex>
             <DocumentMapLabel>Colors and Suppliers</DocumentMapLabel>
             <Style>
@@ -1205,8 +1206,7 @@
             <PageBreak>
               <BreakLocation>End</BreakLocation>
             </PageBreak>
-            <Top>6.36112cm</Top>
-            <Left>0.28809cm</Left>
+            <Top>6.39639cm</Top>
             <Height>1.2cm</Height>
             <Width>8.0245cm</Width>
             <ZIndex>3</ZIndex>
@@ -6754,7 +6754,7 @@ CountDistinct(Fields!StockItemID.Value, "Product"),
       <Width>6.61342in</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
-        <PageWidth>21cm</PageWidth>
+        <PageWidth>15cm</PageWidth>
         <LeftMargin>2cm</LeftMargin>
         <RightMargin>2cm</RightMargin>
         <TopMargin>2cm</TopMargin>
@@ -6770,6 +6770,14 @@ CountDistinct(Fields!StockItemID.Value, "Product"),
       <NumberOfRows>2</NumberOfRows>
     </GridLayoutDefinition>
   </ReportParametersLayout>
+  <Code>Public Function ChangeWord(ByVal s As String) As String  
+   Dim strBuilder As New System.Text.StringBuilder(s)  
+   If s.Contains("t-shirt") Then  
+      strBuilder.Replace("t-shirt","shirt")
+      Return strBuilder.ToString()  
+      Else : Return s  
+   End If  
+End Function</Code>
   <EmbeddedImages>
     <EmbeddedImage Name="WWINewBanner">
       <MIMEType>image/jpeg</MIMEType>
@@ -6911,6 +6919,9 @@ oy6hlKm6HwhwbWTSFDVFShqRd272U7F7sKGyosdO9uFOxTSHrHRgoUeEh+QEL2t/Je9+7d9C+DVKGnm0
 8v5L8q/Kvyr8q8uNdPb+VeS8tRrfy1/KvJf6V/r0vNef8qN0t5rzr5186+a81+Zea815rzXmvOzzp5rzXnd5rzp518l5LyXkvK3z0vLW/Mv9VPOnlTzXmvNedXp5+PXn1T//2Q==</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
+  <CodeModules>
+    <CodeModule>CustomAssembly, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</CodeModule>
+  </CodeModules>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>effc8e9e-9abd-47c6-9cf9-63eefc3696f5</rd:ReportID>
 </Report>
